@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agregar-elemento.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/back_button.css') }}">
+        <title>Agregar pedido</title>
+    </head>
+    <body>
+        <h1 class="outer">Agregar Pedido</h1>
+        <div class="outer">
+            <form id="add_pedido_form" method="post" enctype="multipart/form-data">
+
+                <label for="type_selector">Tipo de producto*</label>
+                <select name="type_selector" id="type_selector" onchange="updateProduct()" required>
+                    <option value="" disabled selected>Seleccionar Tipo de producto</option>
+                    <option value="Fruta">Fruta</option>
+                    <option value="Verdura">Verdura</option>   
+                </select><br><br>
+
+                <div id="div_products">
+                    <div id="left_product">
+                        <label for="product_selector">Producto*</label>
+                        <select name="product_selector" id="product_selector" size="6" multiple disabled required>
+                            <option value="" disabled selected>Seleccionar producto</option>
+                        </select><br><br>
+                    </div>
+                    <div id="right_product">
+                        <span>Mantener Ctrl para seleccionar múltiples productos (5 elementos máximo)</span>
+                    </div>
+                </div>
+
+                <label for="description">Descripción</label>
+                <textarea name="description" id="description" style="width:250px;height:150px;"></textarea><br><br>
+                
+                <label for="region_selector">Región de origen*</label>
+                <select name="region_selector" id="region_selector" onchange="updateRegion()" required>
+                    <option value="" disabled selected>Seleccionar región</option>  
+                </select><br><br>
+
+                <label for="comuna_selector">Comuna*</label>
+                <select name="comuna_selector" id="comuna_selector" required disabled>
+                    <option value="" disabled selected>Seleccionar comuna</option>
+                </select><br><br>
+
+                <label for="comprador_name">Nombre de comprador*</label>
+                <input id="comprador_name" name= "comprador_name" size="80" maxlength="80" required><br><br>
+
+                <label for="comprador_email">Email de comprador*</label>
+                <input id="comprador_email" name="comprador_email" size="30" required>
+                
+                <label for="phone_number">Número de celular</label>
+                <input id="phone_number" name="phone_number" size="15" placeholder="56911223344"><br><br>
+
+                <div id="div_submit">
+                    {% if send == True %}
+                        <div id="warning_div" style="color: green;" ><span id="invalid_message">{{ message }}</span><br><br></div>
+                    {% else %}
+                        <div id="warning_div" style="color: red;" ><span id="invalid_message">{{ message }}</span><br><br></div>
+                    {% endif %}
+                    <div id="submit_button">
+                        <button type="button" id="submit" >Agregar Pedido</button><br>
+                    </div>
+                </div>       
+                
+                <div id="confirm_form">
+                    <div id="confirm_alert">
+                        <p>¿Confirma el registro de este pedido?</p>
+                        <button type="submit" id="confirm">Sí, confirmo</button>
+                        <button type="button" id="cancel">No, quiero volver al formulario</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a href="{{ url_for('index') }}" id="back_home">
+            Volver a la página principal
+        </a>
+        <script src="{{ url_for('static', filename='js/add_pedido.js') }}"></script>
+    </body>
+</html>

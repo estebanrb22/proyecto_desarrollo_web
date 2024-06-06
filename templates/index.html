@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/index.css') }}">
+        <title>Página principal</title>
+    </head>
+    <body> 
+        <div class="outer">
+            <h1>Compra/venta de frutas y verduras</h1>
+        </div>
+        <div class="separation"></div>
+        <div class="outer">
+            <div class="container">
+                <a class="link_button" href="{{ url_for('agregar_producto') }}">
+                    Agregar producto
+                </a>
+                <br>
+                <a class="link_button" href="{{ url_for('ver_productos', index=0) }}">
+                    Ver productos
+                </a>
+                <br>
+                <a class="link_button" href="{{ url_for('agregar_pedido') }}">
+                    Agregar pedido
+                </a>
+                <br>
+                <a class="link_button" href="{{ url_for('ver_pedidos') }}"> 
+                    Ver pedidos
+                </a> 
+            </div>
+        </div>  
+    </body>
+</html>

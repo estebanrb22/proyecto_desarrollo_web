@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/informacion_pedido.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/back_button.css') }}">
+        <title>Información pedido</title>
+    </head>
+    <body>
+        <div id="principal_div">
+            <div id="info_div">
+                <h2>Información del Pedido</h2>
+                <p><b>Tipo de producto:</b> Fruta</p>
+                <p><b>Producto:</b> Frambuesa</p>
+                <p><b>Descripción:</b> Ricas Frambuesas de Talca, igual de buenas que nuestros completos mojados.</p>
+                <p><b>Región:</b> Región del Maule</p>
+                <p><b>Comuna:</b> Talca</p>
+                <p><b>Nombre comprador:</b> Michael Joseph Jackson</p>
+                <p><b>Email comprador:</b> elmichael1958@gmail.com</p>
+                <p><b>Número de contacto:</b> 56944332211</p>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" id="back_home">
+            Volver a la página principal
+        </a>
+        <script src="{{ url_for('static', filename='/js/informacion.js') }}"></script>
+    </body>
+</html>

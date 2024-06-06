@@ -1,0 +1,25 @@
+#principal_div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#info_div {
+    position: absolute;
+    width: 690px;
+    left: 27%;
+    height: 320px;
+}
+#photo_div {
+    position: absolute;
+    left: 700px;
+    top: 65px;
+}
+#imagen {
+    border: 2px solid grey;
+    width: 640px;
+    height: 480px;
+}
+#imagen:hover {
+    cursor: pointer;
+}

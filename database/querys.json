@@ -1,0 +1,28 @@
+{
+    "insert_product": "INSERT INTO producto (tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor) VALUES (%s, %s, %s, %s, %s, %s)",
+    "insert_fv_product": "INSERT INTO producto_verdura_fruta (producto_id, tipo_verdura_fruta_id) VALUES (%s, %s)",
+    
+    "insert_pedido": "INSERT INTO pedido (tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador) VALUES (%s, %s, %s, %s, %s, %s)",
+    "insert_fv_pedido": "INSERT INTO pedido_verdura_fruta (pedido_id, tipo_verdura_fruta_id) VALUES (%s, %s)",
+    
+    "get_region_by_name": "SELECT * FROM region WHERE nombre = %s",
+    "get_comuna_by_name": "SELECT * FROM comuna WHERE nombre = %s",
+    "get_region_comuna": "SELECT reg.nombre, com.nombre FROM comuna com, region reg WHERE com.region_id = reg.id AND com.id = '%s';",
+    "get_id_of_comuna": "SELECT id FROM comuna WHERE nombre LIKE %s",
+
+    "get_fv_by_name": "SELECT * FROM tipo_verdura_fruta WHERE nombre = %s",
+    "get_id_of_fv": "SELECT id FROM tipo_verdura_fruta WHERE nombre LIKE %s;",
+
+    "get_product_by_id": "SELECT * FROM producto WHERE id=%s",
+    "get_product_by_name": "SELECT * FROM producto WHERE =%s",
+    "get_fruta_verdura_product": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, producto_verdura_fruta PVF WHERE TVF.id=PVF.tipo_verdura_fruta_id AND PVF.producto_id=%s",
+    "get_last_product": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC LIMIT 1",
+    "get_5_products_by_index": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC LIMIT %s, 5",
+    "get_5_products_by_index_com": "SELECT PRO.id, PRO.tipo, PRO.descripcion, COM.nombre, PRO.nombre_productor, PRO.email_productor, PRO.celular_productor FROM producto PRO, comuna COM WHERE PRO.comuna_id = COM.id ORDER BY PRO.id DESC LIMIT %s, 5",
+
+    "get_fruta_verdura_pedido": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, pedido_verdura_fruta PVF WHERE TVF.id=PVF.tipo_verdura_fruta_id AND PVF.producto_id=%s",
+    "get_last_pedido": "SELECT id, tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador FROM pedido ORDER BY id DESC LIMIT 1",
+
+    "insert_photo": "INSERT INTO foto (ruta_archivo, nombre_archivo, producto_id) VALUES (%s,%s,%s)",
+    "get_photos_product": "SELECT nombre_archivo FROM foto WHERE producto_id=%s"
+}

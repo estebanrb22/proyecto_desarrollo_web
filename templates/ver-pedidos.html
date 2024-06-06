@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ver_elementos.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ver_pedidos.css') }}">
+        <title>Ver pedidos</title>
+    </head>
+    <body>
+        <a href="{{ url_for('info_pedidos') }}" style="text-decoration: none; color: black;">
+            <table>
+                <tr class="tr_head">
+                    <th>Tipo</th>
+                    <th>Producto(s)</th>
+                    <th>Región</th>
+                    <th>Comuna</th>
+                    <th>Nombre Comprador</th>
+                </tr>
+                <tr class="tr_body">
+                    <td>Fruta</td>
+                    <td>Frambuesa</td>
+                    <td>Región del Maule</td>
+                    <td>Talca</td>
+                    <td>Michael Joseph Jackson</td>
+                </tr>
+                <tr class="tr_body">
+                    <td>Verdura</td>
+                    <td>Apio</td>
+                    <td>Región de la Araucanía</td>
+                    <td>Villarrica</td>
+                    <td>Carlos Pinto Sepúlveda</td>
+                </tr>
+                <tr class="tr_body">
+                    <td>Fruta</td>
+                    <td>Chirimoya</td>
+                    <td>Región del Biobio</td>
+                    <td>Florida</td>
+                    <td>Felipe Camiroaga Fernández</td>
+                </tr>
+                <tr class="tr_body">
+                    <td>Verdura</td>
+                    <td>Alcachofa</td>
+                    <td>Región de Magallanes y  de la Antártica Chilena</td>
+                    <td>Torres del Paine</td>
+                    <td>Esteban Paredes Quintanilla</td>
+                </tr>
+                <tr class="tr_body">
+                    <td>Fruta</td>
+                    <td>Cereza</td>
+                    <td>Arica y Parinacota</td>
+                    <td>Putre</td>
+                    <td>Darwin Núñez Ribeiro</td>
+                </tr>
+            </table>
+        </a>
+        <div id="pos_center_div">
+            <a href="{{ url_for('index') }}" id ="back_home">
+                Volver a la página principal
+            </a>
+        </div>
+    </body>
+    </html>

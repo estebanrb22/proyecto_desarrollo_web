@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/informacion_producto.css') }}" >
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/back_button.css') }}">
+        <title>Información producto</title>
+    </head>
+    <body>
+        <div id="principal_div">
+            <div id="info_div">
+                <h2>Información del Producto</h2>
+                <p><b>Tipo de producto:</b> {{ data["tipo"] }}</p>
+                <p><b>Producto(s):</b> {{ data["list_fv"] }}</p>
+                <p><b>Descripción:</b> {{ data["desc"] }}</p>
+                <p><b>Región:</b> {{ data["region"] }}</p>
+                <p><b>Comuna:</b> {{ data["comuna"] }}</p>
+                <p><b>Nombre productor:</b> {{ data["p_nombre"] }}</p>
+                <p><b>Email productor:</b> {{ data["p_email"] }}</p>
+                <p><b>Número de contacto:</b> {{ data["p_cel"] }}</p>
+            </div>
+            <div id="photo_div">
+                {% for photo in data.list_photos%}
+                    <img class="imagen" src={{photo}} alt="imagen de fruta o verdura" onclick="interactPhoto(this)">
+                {% endfor %}
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" id="back_home">
+            Volver a la página principal
+        </a>
+        <script src="{{ url_for('static', filename='/js/informacion.js') }}"></script>
+    </body>
+</html>
