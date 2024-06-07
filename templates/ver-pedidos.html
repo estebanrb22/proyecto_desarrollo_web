@@ -8,56 +8,62 @@
         <title>Ver pedidos</title>
     </head>
     <body>
-        <a href="{{ url_for('info_pedidos') }}" style="text-decoration: none; color: black;">
-            <table>
-                <tr class="tr_head">
-                    <th>Tipo</th>
-                    <th>Producto(s)</th>
-                    <th>Región</th>
-                    <th>Comuna</th>
-                    <th>Nombre Comprador</th>
-                </tr>
-                <tr class="tr_body">
-                    <td>Fruta</td>
-                    <td>Frambuesa</td>
-                    <td>Región del Maule</td>
-                    <td>Talca</td>
-                    <td>Michael Joseph Jackson</td>
-                </tr>
-                <tr class="tr_body">
-                    <td>Verdura</td>
-                    <td>Apio</td>
-                    <td>Región de la Araucanía</td>
-                    <td>Villarrica</td>
-                    <td>Carlos Pinto Sepúlveda</td>
-                </tr>
-                <tr class="tr_body">
-                    <td>Fruta</td>
-                    <td>Chirimoya</td>
-                    <td>Región del Biobio</td>
-                    <td>Florida</td>
-                    <td>Felipe Camiroaga Fernández</td>
-                </tr>
-                <tr class="tr_body">
-                    <td>Verdura</td>
-                    <td>Alcachofa</td>
-                    <td>Región de Magallanes y  de la Antártica Chilena</td>
-                    <td>Torres del Paine</td>
-                    <td>Esteban Paredes Quintanilla</td>
-                </tr>
-                <tr class="tr_body">
-                    <td>Fruta</td>
-                    <td>Cereza</td>
-                    <td>Arica y Parinacota</td>
-                    <td>Putre</td>
-                    <td>Darwin Núñez Ribeiro</td>
-                </tr>
-            </table>
-        </a>
+        <table>
+            <tr class="tr_head">
+                <th>Tipo</th>
+                <th>Producto(s)</th>
+                <th>Región</th>
+                <th>Comuna</th>
+                <th>Nombre Comprador</th>
+            </tr>
+            {% if data %}
+                {% for pedido in data %}
+                    <tr class="tr_body">
+                        <td>
+                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                                {{ pedido["tipo"] }}
+                            </a>
+                        </td>
+                        <td>
+                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                                {{ pedido["list_fv"] }}
+                            </a>
+                        </td>
+                        <td>
+                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                                {{ pedido["region"] }}
+                            </a>
+                        </td>
+                        <td>
+                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                                {{ pedido["comuna"] }}
+                            </a>
+                        </td>
+                        <td>
+                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                                {{ pedido["c_nombre"] }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
         <div id="pos_center_div">
             <a href="{{ url_for('index') }}" id ="back_home">
                 Volver a la página principal
             </a>
+            {% if index > 0 %}
+                {% set back_index = index - 5 %}
+                <a  id ="back_page" href="{{ url_for('ver_pedidos', index=back_index) }}">
+                    Anterior página
+                </a>
+            {% endif%}
+            {% if last_id > 1 %}
+                {% set next_index = index + 5 %}
+                <a  id ="next_page" href="{{ url_for('ver_pedidos', index=next_index) }}">
+                    Siguiente página
+                </a>
+            {% endif %}
         </div>
     </body>
-    </html>
+</html>

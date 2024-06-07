@@ -17,8 +17,6 @@ def isValid_fv(fv_list):
     return is_valid
 
 def isValidDesc(desc):
-    if desc == None:
-        return True
     return len(desc) <= 300
 
 def validate_photo(photo):

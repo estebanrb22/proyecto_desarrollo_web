@@ -158,6 +158,13 @@ def list_of_fv_product(product_id):
 
 #getters of a pedido
 
+def get_pedido_by_id(pedido_id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_pedido_by_id"], (pedido_id,))
+	pedido = cursor.fetchone()
+	return pedido
+
 def get_fruta_verdura_pedido(pedido_id):
 	conn = get_conn()
 	cursor = conn.cursor()
@@ -171,6 +178,27 @@ def get_last_pedido():
 	cursor.execute(QUERY_DICT["get_last_pedido"])
 	last_pedido = cursor.fetchall()[0]
 	return last_pedido
+
+def get_fruta_verdura_pedido(pedido_id):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_fruta_verdura_pedido"], (pedido_id,))
+	frutas_verduras = cursor.fetchall()
+	return frutas_verduras
+
+def get_5_pedidos_by_index(index):
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["get_5_pedidos_by_index"], (index,))
+	five_pedidos = cursor.fetchall()
+	return five_pedidos
+
+def list_of_fv_pedido(pedido_id):
+	query = get_fruta_verdura_pedido(pedido_id)
+	list_fv = ""
+	for fv in query:
+		list_fv += f"{fv[0]} - "
+	return list_fv[:-3]
 
 #insert and get photos
 	
@@ -190,7 +218,7 @@ def get_photos_product(product_id):
 #make a dictionary that contains all the info of a product
 
 def makeDictInfoProduct(product_row):
-    product_id, tipo, desc, comuna_id, p_nombre, p_email, p_cel = product_row
+    product_id, tipo, desc, comuna_id, p_nombre, p_email, p_number = product_row
     reg, comuna = get_region_comuna(comuna_id)
     fv_product = list_of_fv_product(product_id)
     photos_p = get_photos_product(product_id)
@@ -207,7 +235,27 @@ def makeDictInfoProduct(product_row):
         "comuna": comuna,
 		"p_nombre": p_nombre,
 		"p_email": p_email,
-		"p_cel": p_cel,
+		"p_number": p_number,
         "list_photos": paths_photos
     }
     return info_product
+
+#make a dictionary that contains all the info of a pedido
+
+def makeDictInfoPedido(pedido_row):
+    pedido_id, tipo, desc, comuna_id, c_nombre, c_email, c_number = pedido_row
+    reg, comuna = get_region_comuna(comuna_id)
+    fv_pedido = list_of_fv_pedido(pedido_id)
+    paths_photos = []
+    info_pedido = {
+		"id": pedido_id,
+        "tipo": tipo.title(),
+		"desc": desc,
+        "list_fv": fv_pedido, 
+        "region": reg,
+        "comuna": comuna,
+		"c_nombre": c_nombre,
+		"c_email": c_email,
+		"c_number": c_number,
+    }
+    return info_pedido

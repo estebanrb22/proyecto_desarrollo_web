@@ -20,27 +20,27 @@
                 {% for product in data %}
                     <tr class="tr_body">
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product=product.id) }}">
+                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["tipo"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product=product.id) }}">
+                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["list_fv"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product=product.id) }}">
+                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["region"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product=product.id) }}">
+                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["comuna"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_photos" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product=product.id) }}">
+                                <a class="a_photos" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {% for photo in product.list_photos %}
                                         <img src={{photo}} alt="imagen de fruta o verdura">
                                     {% endfor %}
@@ -54,16 +54,18 @@
             <a href="{{ url_for('index') }}" id ="back_home">
                 Volver a la página principal
             </a>
-            {% set back_index = index - 5 %}
-            {% if back_index >= 0 %}
+            {% if index > 0 %}
+                {% set back_index = index - 5 %}
                 <a  id ="back_page" href="{{ url_for('ver_productos', index=back_index) }}">
                     Anterior página
                 </a>
             {% endif%}
-            {% set next_index = index + 5 %}
-            <a  id ="next_page" href="{{ url_for('ver_productos', index=next_index) }}">
-                Siguiente página
-            </a>
+            {% if last_id > 1 %}
+                {% set next_index = index + 5 %}
+                <a  id ="next_page" href="{{ url_for('ver_productos', index=next_index) }}">
+                    Siguiente página
+                </a>
+            {% endif %}
         </div>
     </body>
 </html>

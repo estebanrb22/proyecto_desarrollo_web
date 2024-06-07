@@ -85,7 +85,11 @@ def ver_productos(index):
     for product in five_products:
         info_product_i = db.makeDictInfoProduct(product)
         data.append(info_product_i)
-    return render_template("ver-productos.html", data=data, index=index)
+    len_products = len(five_products)
+    last_id = 0
+    if len_products > 0:
+        last_id = five_products[-1:][0][0]
+    return render_template("ver-productos.html", data=data, index=index, last_id=last_id)
 
 @app.route("/agregar-pedido", methods=["GET", "POST"])
 def agregar_pedido():
@@ -96,7 +100,7 @@ def agregar_pedido():
         #get all the info from the form
         tipo_pedido = request.form.get("type_selector")
         pedidos = request.form.getlist("product_selector")
-        desc = request.form.get("descripcion")
+        desc = request.form.get("description")
         region = request.form.get("region_selector")
         comuna = request.form.get("comuna_selector")
         name_c = request.form.get("comprador_name")
@@ -122,20 +126,31 @@ def agregar_pedido():
         data["send"] = not data["send"]
         return render_template("agregar-pedido.html", **data)        
 
-@app.route("/ver-pedidos", methods=["GET"])
-def ver_pedidos():
-    if request.method == "GET":
-        return render_template("ver-pedidos.html")
+@app.route("/ver-pedidos/<index>", methods=["GET"])
+def ver_pedidos(index):
+    index = int(index)
+    five_pedidos = db.get_5_pedidos_by_index(index)
+    data = []
+    for pedido in five_pedidos:
+        info_pedido_i = db.makeDictInfoPedido(pedido)
+        data.append(info_pedido_i)
+    len_pedidos = len(five_pedidos)
+    last_id = 0
+    if len_pedidos > 0:
+        last_id = five_pedidos[-1:][0][0]
+    return render_template("ver-pedidos.html", data=data, index=index, last_id=last_id)
+    
+@app.route("/informacion-pedidos/<pedido_id>", methods=["GET"])
+def info_pedidos(pedido_id):
+    info_pedido =  db.get_pedido_by_id(int(pedido_id))
+    dict_pedido = db.makeDictInfoPedido(info_pedido)
+    return render_template("informacion-pedido.html", data=dict_pedido)
 
-@app.route("/informacion-pedidos", methods=["GET"])
-def info_pedidos():
-    return render_template("informacion-pedido.html")
-
-@app.route("/informacion-productos/<product>", methods=["GET"])
-def info_productos(product):
-    product = db.get_product_by_id(int(product))
-    info_product = db.makeDictInfoProduct(product)
-    return render_template("informacion-producto.html", data=info_product)
+@app.route("/informacion-productos/<product_id>", methods=["GET"])
+def info_productos(product_id):
+    info_product = db.get_product_by_id(int(product_id))
+    dict_product = db.makeDictInfoProduct(info_product)
+    return render_template("informacion-producto.html", data=dict_product)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -10,14 +10,14 @@
         <div id="principal_div">
             <div id="info_div">
                 <h2>Información del Pedido</h2>
-                <p><b>Tipo de producto:</b> Fruta</p>
-                <p><b>Producto:</b> Frambuesa</p>
-                <p><b>Descripción:</b> Ricas Frambuesas de Talca, igual de buenas que nuestros completos mojados.</p>
-                <p><b>Región:</b> Región del Maule</p>
-                <p><b>Comuna:</b> Talca</p>
-                <p><b>Nombre comprador:</b> Michael Joseph Jackson</p>
-                <p><b>Email comprador:</b> elmichael1958@gmail.com</p>
-                <p><b>Número de contacto:</b> 56944332211</p>
+                <p><b>Tipo de producto:</b> {{ data["tipo"] }}</p>
+                <p><b>Producto:</b> {{ data["list_fv"] }}</p>
+                <p><b>Descripción:</b> {{ data["desc"] }} </p>
+                <p><b>Región:</b> {{ data["region"] }} </p>
+                <p><b>Comuna:</b> {{ data["comuna"] }} </p>
+                <p><b>Nombre comprador:</b> {{ data["c_nombre"] }} </p>
+                <p><b>Email comprador:</b> {{ data["c_email"] }} </p>
+                <p><b>Número de contacto:</b> {{ data["c_number"] }} </p>
             </div>
         </div>
         <a href="{{ url_for('index') }}" id="back_home">
