@@ -259,3 +259,27 @@ def makeDictInfoPedido(pedido_row):
 		"c_number": c_number,
     }
     return info_pedido
+
+#queries to get the info to create graphs
+
+def count_products_by_fv():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["count_products_group_by_fv"])
+	count_products = cursor.fetchall()
+	info_products = []
+	for product in count_products:
+		dict_product_i = {"fv": product[0], "cantidad": product[1]}
+		info_products.append(dict_product_i)
+	return info_products
+
+def count_pedidos_by_com():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["count_pedidos_group_by_com"])
+	count_pedidos = cursor.fetchall()
+	info_pedidos = []
+	for pedido in count_pedidos:
+		dict_pedido_i = {"comuna": pedido[0], "cantidad": pedido[1]}
+		info_pedidos.append(dict_pedido_i)
+	return info_pedidos

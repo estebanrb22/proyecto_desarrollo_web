@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/index.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/back_button.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/stats.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/general.css') }}">
+        <title>Estadísticas</title>
+    </head>
+    <body> 
+        <div class="outer">
+            <h1>Estadísticas</h1>
+        </div>
+        <div id="graphs">
+            <br>
+            <div id="left_graph">
+                <div class="stats-container">
+                    <figure class="highcharts-figure" style="font-size: small;">
+                        <div id="products_graph"></div>
+                    </figure>
+                </div>
+            </div>
+            <div id="right_graph">
+                <div class="stats-container">
+                    <figure class="highcharts-figure" style="font-size: small;">
+                        <div id="pedidos_graph"></div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" id="back_home">
+            Volver a la página principal
+        </a>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="{{url_for('static', filename='js/stats.js')}}"></script>
+    </body>
+</html>

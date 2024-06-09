@@ -1,6 +1,7 @@
 .outer {
     width: 100%;
     text-align: center;
+    color: white;
 }
 .separation{
     width: 100%;
@@ -14,14 +15,14 @@
 .link_button {
     border: none;
     padding: 13px 40px;
-    background-color: #3FC9E0;
+    background-color: #EA205A;
     border-radius: 8px;
     width: 300px;
-    font-size: 15px;
-    color: black;
+    font-size: 17px;
+    color: white;
     text-decoration: none;
 }
 .link_button:hover {
-    background-color: #2098AC;
+    background-color: #3FC9E0;
     cursor: pointer
 }

@@ -26,5 +26,8 @@
     "get_5_pedidos_by_index": "SELECT id, tipo, descripcion, comuna_id, nombre_comprador, email_comprador, celular_comprador FROM pedido ORDER BY id DESC LIMIT %s, 5", 
 
     "insert_photo": "INSERT INTO foto (ruta_archivo, nombre_archivo, producto_id) VALUES (%s,%s,%s)",
-    "get_photos_product": "SELECT nombre_archivo FROM foto WHERE producto_id=%s"
+    "get_photos_product": "SELECT nombre_archivo FROM foto WHERE producto_id=%s",
+
+    "count_products_group_by_fv": "SELECT nombre, COUNT(*) AS 'cantidad' FROM producto_verdura_fruta PVF, tipo_verdura_fruta TVF WHERE PVF.tipo_verdura_fruta_id = TVF.id GROUP BY nombre ORDER BY nombre ASC",
+    "count_pedidos_group_by_com": "SELECT comuna.nombre, COUNT(*) AS 'cantidad' FROM pedido, comuna WHERE comuna_id = comuna.id GROUP BY comuna_id ORDER BY comuna.nombre ASC"
 }

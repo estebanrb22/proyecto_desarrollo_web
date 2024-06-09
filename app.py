@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session, jsonify
+from flask_cors import cross_origin
 from werkzeug.utils import secure_filename
 import database.db as db
 import utils.validations as vl
@@ -151,6 +152,23 @@ def info_productos(product_id):
     info_product = db.get_product_by_id(int(product_id))
     dict_product = db.makeDictInfoProduct(info_product)
     return render_template("informacion-producto.html", data=dict_product)
+
+@app.route("/get-product-data", methods=["GET"])
+@cross_origin(origin="localhost", supports_credentials=True)
+def get_count_product_data():
+    count_products = db.count_products_by_fv()
+    print(count_products)
+    return jsonify(count_products)
+
+@app.route("/get-pedidos-data", methods=["GET"])
+@cross_origin(origin="localhost", supports_credentials=True)
+def get_count_pedidos_data():
+    count_pedidos = db.count_pedidos_by_com()
+    return jsonify(count_pedidos)
+
+@app.route("/ver-estadisticas", methods=["GET"])
+def ver_estadisticas():
+    return render_template("ver_estadisticas.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
