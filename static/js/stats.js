@@ -79,7 +79,7 @@ Highcharts.chart("pedidos_graph", {
         backgroundColor: 'rgba(0, 0, 0, 0)', 
     },
     title: {
-        text: "Cantidad total de productos por tipo de Fruta/Verdura",
+        text: "Cantidad total de pedidos por comuna",
         style: {
             color: '#ffffff'
         },
@@ -87,7 +87,7 @@ Highcharts.chart("pedidos_graph", {
     xAxis: {
         categories: [],
         title: {
-            text: "Tipo de Fruta/Verdura",
+            text: "Comuna",
             style: {color: '#ffffff'},  
         },
         labels: {
@@ -96,7 +96,7 @@ Highcharts.chart("pedidos_graph", {
     },
     yAxis: {
         title: {
-            text: "Cantidad de Productos",
+            text: "Cantidad de Pedidos",
             style: {color: '#ffffff'},
         },
         labels: {
@@ -117,7 +117,7 @@ Highcharts.chart("pedidos_graph", {
   
     series: [
         {
-            name: "Productos",
+            name: "Pedidos",
             data: [],
             lineWidth: 1,
             marker: {

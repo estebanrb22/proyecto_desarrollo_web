@@ -21,27 +21,27 @@
                 {% for product in data %}
                     <tr class="tr_body">
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
+                                <a class="a_general" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["tipo"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
+                                <a class="a_general" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["list_fv"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
+                                <a class="a_general" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["region"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
+                                <a class="a_general" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {{ product["comuna"] }}
                                 </a>
                             </td>
                             <td>
-                                <a class="a_photos" style="text-decoration: none; color: black;" href="{{ url_for('info_productos', product_id=product.id) }}">
+                                <a class="a_photos" href="{{ url_for('info_productos', product_id=product.id) }}">
                                     {% for photo in product.list_photos %}
                                         <img src={{photo}} alt="imagen de fruta o verdura">
                                     {% endfor %}

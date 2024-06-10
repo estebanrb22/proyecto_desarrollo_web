@@ -1,10 +1,12 @@
 th {
-    border: 1px solid black;
+    border: 1px solid rgb(13, 4, 58);
     text-align: center;
     padding: 5px;
+    border: transparent
 }
 td {
-    border: 1px solid black;
+    border: 1px solid rgb(13, 4, 58);
     text-align: center;
     height: 130px;
+    border: 1px solid rgb(132, 181, 233);
 }

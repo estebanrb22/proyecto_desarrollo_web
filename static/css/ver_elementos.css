@@ -4,25 +4,26 @@ table {
     border-collapse: collapse;
     width: 95%;
     left: 2%;
+    border: transparent;
 }
 .tr_head {
-    background-color: #ffffff;
+    background-color: #323685;
 }
 .tr_body:nth-child(even):hover {
     position: relative;
     cursor: pointer;
-    background-color: rgb(166, 166, 166);
+    background: linear-gradient(to bottom, #111a4b, #233176);
 }
 .tr_body:nth-child(odd):hover {
     position: relative;
     cursor: pointer;
-    background-color: rgb(175, 171, 171);
+    background: linear-gradient(to bottom, #111a4b, #233176);
 }
 .tr_body:nth-child(even) {
-    background-color: #d8d8d8;
+    background: linear-gradient(to bottom, #475AB7, #30439F);
 }
 .tr_body:nth-child(odd) {
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #30439F, #475AB7);
 }
 img {
     height: 120px;
@@ -34,14 +35,14 @@ img {
     left: -85px;
     border: none;
     padding: 5px 10px;
-    background-color: #3FC9E0;
+    color: white;
+    background-color: #192064;
     border-radius: 8px;
-    color: black;
     text-decoration: none;
 }
 #back_home:hover {
-    background-color: #2098AC;
-    cursor: pointer
+    background-color: #060827;
+    cursor: pointer;
 }     
 #next_page {
     position: absolute;
@@ -49,14 +50,14 @@ img {
     right: -325px;
     border: none;
     padding: 5px 10px;
-    background-color: #3FC9E0;
+    color: white;
+    background-color: #EA205A;
     border-radius: 8px;
-    color: black;
     text-decoration: none;
 }
 #next_page:hover {
-    background-color: #2098AC;
-    cursor: pointer
+    background-color : #AE1541;
+    cursor: pointer;
 }      
 #back_page {
     position: absolute;
@@ -64,14 +65,14 @@ img {
     left: -710px;
     border: none;
     padding: 5px 10px;
-    background-color: #3FC9E0;
+    color: white;
+    background-color: #EA205A;
     border-radius: 8px;
-    color: black;
     text-decoration: none;
 }
 #back_page:hover {
-    background-color: #2098AC;
-    cursor: pointer
+    background-color : #AE1541;
+    cursor: pointer;
 }    
 #pos_center_div {
     position: relative;
@@ -85,8 +86,10 @@ img {
 }
 .a_general {
     display: block;
+    color: white;
     padding-bottom: 54px;
     padding-top: 54px;
+    text-decoration: none;
 }
 .a_photos {
     display: block;

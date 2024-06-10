@@ -3,12 +3,12 @@
     bottom: 10px;
     border: none;
     padding: 5px 10px;
-    background-color: #3FC9E0;
+    color: white;
+    background-color: #192064;
     border-radius: 8px;
-    color: black;
     text-decoration: none;
 }
 #back_home:hover {
-    background-color: #2098AC;
-    cursor: pointer
+    background-color: #060827;
+    cursor: pointer;
 }

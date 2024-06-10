@@ -15,14 +15,14 @@
 .link_button {
     border: none;
     padding: 13px 40px;
-    background-color: #EA205A;
     border-radius: 8px;
     width: 300px;
     font-size: 17px;
     color: white;
+    background-color: #EA205A;
     text-decoration: none;
 }
 .link_button:hover {
-    background-color: #3FC9E0;
+    background-color : #AE1541;
     cursor: pointer
 }

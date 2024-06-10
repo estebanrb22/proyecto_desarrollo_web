@@ -212,7 +212,7 @@ const validateForm = () => {
     const productorEmail = document.getElementById("productor_email");
     const phoneNumber = document.getElementById("phone_number");
     const invalidMessage = document.getElementById("invalid_message"); 
-    invalidMessage.style.color = "red";
+    invalidMessage.style.color = "#920202";
     invalidMessage.innerText = "";
     if (!isSelected(type_selector)) {
         invalidMessage.innerText = "Seleccione tipo de producto";

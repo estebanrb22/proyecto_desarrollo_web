@@ -21,27 +21,27 @@
                 {% for pedido in data %}
                     <tr class="tr_body">
                         <td>
-                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                            <a class="a_general" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
                                 {{ pedido["tipo"] }}
                             </a>
                         </td>
                         <td>
-                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                            <a class="a_general" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
                                 {{ pedido["list_fv"] }}
                             </a>
                         </td>
                         <td>
-                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                            <a class="a_general" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
                                 {{ pedido["region"] }}
                             </a>
                         </td>
                         <td>
-                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                            <a class="a_general" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
                                 {{ pedido["comuna"] }}
                             </a>
                         </td>
                         <td>
-                            <a class="a_general" style="text-decoration: none; color: black;" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
+                            <a class="a_general" href="{{ url_for('info_pedidos', pedido_id=pedido.id) }}">
                                 {{ pedido["c_nombre"] }}
                             </a>
                         </td>
